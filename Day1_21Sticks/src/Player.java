@@ -1,11 +1,14 @@
 import java.util.Scanner;
 
 public class Player {
-	private boolean is_computer = false;
 	//true for computer player - false for human player
+	private boolean is_computer;
+	
 	Scanner take = new Scanner(System.in);
 	
-	Player(){}
+	Player(){
+		this.is_computer = false;
+	}
 	
 	Player(boolean player_type){
 		this.is_computer = player_type;

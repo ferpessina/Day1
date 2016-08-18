@@ -2,7 +2,7 @@ public class TwentyOneSticks {
 
 	public static void main(String[] args) {
 		GameSticks sticks = new GameSticks();
-		Player player1 = new Player(true);
+		Player player1 = new Player(false);
 		Player player2 = new Player(true);
 		
 		System.out.println("Game Start!");
