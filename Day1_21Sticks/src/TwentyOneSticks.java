@@ -1,36 +1,22 @@
-import java.util.Scanner;
-
 public class TwentyOneSticks {
 
 	public static void main(String[] args) {
 		GameSticks sticks = new GameSticks();
-		Scanner take = new Scanner(System.in);
-		int numToTake = 0;
-
+		Player player1 = new Player(true);
+		Player player2 = new Player(true);
+		
+		System.out.println("Game Start!");
+		
 		while (sticks.remaining_sticks() > 0) {
-
-			System.out.println("There are" + sticks.remaining_sticks() + " sticks");
-			System.out.println("How many sticks would you like to take?");
-			numToTake = take.nextInt();
-
-			if (sticks.take(numToTake) <= 0) {
-				System.out.println("You lose! :C");
+			System.out.println("Player 1 turn:");
+			if (sticks.take(player1.play(sticks.remaining_sticks())) <= 0) {
+				System.out.println("Player 2 wins!! \nPlayer 1 is the loser...");
 			} else {
-
-				if ((sticks.remaining_sticks() - 2) % 3 == 0 || sticks.remaining_sticks() - 2 == 0) {
-					numToTake = 1;
-				} else {
-					numToTake = 2;
-				}
-				System.out.println("Computer takes " + numToTake + " sticks");
-				
-				if (sticks.take(numToTake) <= 0) {
-					System.out.println("You win! :D");
+				System.out.println("Player 2 turn:");
+				if (sticks.take(player2.play(sticks.remaining_sticks())) <= 0) {
+					System.out.println("Player 1 wins!! \nPlayer 2 is the loser...");
 				}
 			}
-
-			
 		}
-		take.close();
 	}
 }
